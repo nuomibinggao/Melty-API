@@ -9,8 +9,8 @@
   "compatibility_date": "2025-10-23",
 	"d1_databases": [
 			{
-				"binding": "DB",         // use env.DB in your Worker
-				"database_name": "melty-db"  // must match your D1 database exactly
+				"binding": "DB",
+				"database_name": "melty-db"
 			}
 		]
 	/**
