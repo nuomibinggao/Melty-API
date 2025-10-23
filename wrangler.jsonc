@@ -4,12 +4,15 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "melty-api",
-	"main": "src/index.js",
-	"compatibility_date": "2025-10-23",
-	"observability": {
-		"enabled": true
-	}
+  "name": "melty-api",
+  "main": "src/index.js",
+  "compatibility_date": "2025-10-23",
+	"d1_databases": [
+			{
+				"binding": "DB",         // use env.DB in your Worker
+				"database_name": "melty-db"  // must match your D1 database exactly
+			}
+		]
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
