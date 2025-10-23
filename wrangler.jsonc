@@ -7,12 +7,6 @@
   "name": "melty-api",
   "main": "src/index.js",
   "compatibility_date": "2025-10-23",
-	"d1_databases": [
-			{
-				"binding": "DB",
-				"database_name": "melty-db"
-			}
-		]
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
