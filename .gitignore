@@ -168,3 +168,6 @@ dist
 
 # Debugging tools
 import-levels.js
+data.sql
+adofai-levels.js
+schema.sql

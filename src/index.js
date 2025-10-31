@@ -1,6 +1,5 @@
-import { uploadLevel } from "./routes/uploadLevel.js";
-import { getLevels } from "./routes/getLevels.js";
-import { verifyCode } from "./routes/access.js";
+import { uploadLevel } from "./routes/upload-level.js";
+import { getLevels } from "./routes/get-levels.js";
 
 export default {
   async fetch(request, env) {
@@ -12,10 +11,6 @@ export default {
 
     if (url.pathname === "/get-levels" && request.method === "GET") {
       return getLevels(request, env);
-    }
-
-    if (url.pathname === "/verify-code" && request.method === "POST") {
-      return verifyCode(request, env);
     }
 
     return new Response("Not found", { status: 404 });

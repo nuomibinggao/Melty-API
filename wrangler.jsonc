@@ -10,6 +10,7 @@
 "d1_databases": [
     {
       "binding": "DB",
+			"database_name": "melty-db",
       "database_id": "a3e38173-03b0-4640-a2f4-8f2aafc823db"
     }
   ]
