@@ -1,5 +1,5 @@
-// routes/get-levels-module.js
-export async function getLevelsModule(request, env) {
+// routes/get-levels.js
+export async function getLevels(request, env) {
   const comingSoon = await env.DB.prepare("SELECT * FROM coming_soon LIMIT 1").all();
   const indie = await env.DB.prepare("SELECT * FROM indie_levels ORDER BY date DESC").all();
   const plcr = await env.DB.prepare("SELECT * FROM plcr_levels ORDER BY date DESC").all();
