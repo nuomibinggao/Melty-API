@@ -14,17 +14,3 @@ export async function getLevels(request, env) {
 
   return data;
 }
-
-export async function onRequestGet(context) {
-  const data = await getLevels(context.request, context.env);
-  const moduleContent = `
-export const comingSoonLevel = ${JSON.stringify(data.comingSoonLevel)};
-export const indieLevels = ${JSON.stringify(data.indieLevels)};
-export const plcrLevels = ${JSON.stringify(data.plcrLevels)};
-export const legacyLevel = ${JSON.stringify(data.legacyLevel)};
-  `;
-
-  return new Response(moduleContent, {
-    headers: { "Content-Type": "application/javascript" },
-  });
-}
