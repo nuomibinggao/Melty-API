@@ -16,7 +16,7 @@ export const legacyLevel = ${JSON.stringify(data.legacyLevel)};
       `;
 
       return new Response(moduleContent, {
-        headers: { "Content-Type": "application/javascript; charset=utf-8" },
+        headers: { "Content-Type": "application/javascript; charset=utf-8", "Access-Control-Allow-Origin": "*" },
       });
     }
 
