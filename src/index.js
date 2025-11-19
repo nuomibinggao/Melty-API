@@ -1,5 +1,6 @@
 import { uploadLevel } from "./routes/upload-level.js";
 import { getLevels } from "./routes/get-levels.js";
+import { getLevelById } from "./routes/get-level-by-id.js";
 
 export default {
   async fetch(request, env) {
@@ -18,6 +19,37 @@ export const legacyLevel = ${JSON.stringify(data.legacyLevel)};
       return new Response(moduleContent, {
         headers: { "Content-Type": "application/javascript; charset=utf-8", "Access-Control-Allow-Origin": "*" },
       });
+    }
+
+    if (url.pathname.startsWith("/get-level-by-id/") && request.method === "GET") {
+      const id = url.pathname.split("/")[2];
+      
+      if (!id) {
+        return new Response(JSON.stringify({ error: "Missing ID parameter" }), { 
+          status: 400,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
+
+      try {
+        const result = await getLevelById(request, env, id);
+        
+        if (!result.level) {
+          return new Response(JSON.stringify({ error: "Level not found" }), {
+            status: 404,
+            headers: { "Content-Type": "application/json" }
+          });
+        }
+
+        return new Response(JSON.stringify(result), {
+          headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" },
+        });
+      } catch (err) {
+        return new Response(JSON.stringify({ error: "Internal server error" }), {
+          status: 500,
+          headers: { "Content-Type": "application/json" }
+        });
+      }
     }
 
     if (url.pathname === "/upload-level" && request.method === "POST") {

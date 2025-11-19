@@ -21,9 +21,10 @@ export async function uploadLevel(request, env) {
         break;
 
       case "indie":
-        sql = `INSERT INTO indie_levels (title, icon, secondary_icon, date, duration, bilibili_bvid, description, tuf_link, soundcloud_link)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+        sql = `INSERT INTO indie_levels (id, title, icon, secondary_icon, date, duration, bilibili_bvid, description, tuf_link, soundcloud_link, variation_of, variation_name)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
         values = [
+          level.id,
           level.title,
           level.icon,
           level.secondary_icon || "",
@@ -33,13 +34,16 @@ export async function uploadLevel(request, env) {
           level.description,
           level.tuf_link,
           level.soundcloud_link || "",
+          level.variation_of || null,
+          level.variation_name || "",
         ];
         break;
 
       case "plcr":
-        sql = `INSERT INTO plcr_levels (title, icon, secondary_icon, date, duration, description, tuf_link, youtube_link, soundcloud_link)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+        sql = `INSERT INTO plcr_levels (id, title, icon, secondary_icon, date, duration, description, tuf_link, youtube_link, soundcloud_link, variation_of, variation_name)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`;
         values = [
+          level.id,
           level.title,
           level.icon,
           level.secondary_icon || "",
@@ -49,6 +53,8 @@ export async function uploadLevel(request, env) {
           level.tuf_link,
           level.youtube_link || "",
           level.soundcloud_link || "",
+          level.variation_of || null,
+          level.variation_name || "",
         ];
         break;
 
