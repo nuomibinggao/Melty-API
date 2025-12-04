@@ -22,17 +22,18 @@ export const legacyLevel = ${JSON.stringify(data.legacyLevel)};
     }
 
     if (url.pathname.startsWith("/get-level-by-id/") && request.method === "GET") {
-      const id = url.pathname.split("/")[2];
+      const type = url.pathname.split("/")[2];
+      const id = url.pathname.split("/")[3];
       
-      if (!id) {
-        return new Response(JSON.stringify({ error: "Missing ID parameter" }), { 
+      if (!type || !id) {
+        return new Response(JSON.stringify({ error: "Missing type or ID parameter" }), { 
           status: 400,
           headers: { "Content-Type": "application/json" }
         });
       }
 
       try {
-        const result = await getLevelById(request, env, id);
+        const result = await getLevelById(request, env, type, id);
         
         if (!result.level) {
           return new Response(JSON.stringify({ error: "Level not found" }), {
