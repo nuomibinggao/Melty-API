@@ -7,9 +7,9 @@ export async function getLevels(request, env) {
   const legacy = await db.prepare("SELECT * FROM legacy_level LIMIT 1").first();
 
   return {
-    comingSoonLevel: comingSoon || null,
-    indieLevels: indie.results || [],
-    plcrLevels: plcr.results || [],
+    comingsoon: comingSoon || null,
+    indie: indie.results || [],
+    plcr: plcr.results || [],
     legacyLevel: legacy || null
   };
 }

@@ -6,7 +6,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    if (url.pathname === "/get-levels" && request.method === "GET") {
+    if (url.pathname === "/get-levels/js" && request.method === "GET") {
       const data = await getLevels(request, env);
 
       const moduleContent = `
@@ -18,6 +18,14 @@ export const legacyLevel = ${JSON.stringify(data.legacyLevel)};
 
       return new Response(moduleContent, {
         headers: { "Content-Type": "application/javascript; charset=utf-8", "Access-Control-Allow-Origin": "*" },
+      });
+    } else if (url.pathname.startsWith("/get-levels/json/") && request.method === "GET") {
+      const data = await getLevels(request, env);
+
+      const moduleContent = `${JSON.stringify(data[url.pathname.split("/")[3]])}`;
+
+      return new Response(moduleContent, {
+        headers: { "Content-Type": "application/json; charset=utf-8", "Access-Control-Allow-Origin": "*" },
       });
     }
 
