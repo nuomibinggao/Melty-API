@@ -4,7 +4,7 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "melty-api",
+	"name": "melty-api-v2",
 	"main": ".svelte-kit/cloudflare/_worker.js",
 	"compatibility_date": "2026-04-21",
 	"compatibility_flags": [
@@ -18,6 +18,18 @@
 	"observability": {
 		"enabled": true
 	},
+	"r2_buckets": [
+    {
+      "binding": "CDN", 
+      "bucket_name": "melty-cdn"
+    }
+  ],
+	"kv_namespaces": [
+    {
+      "binding": "KV",
+      "id": "26c76d98b22747a487751f70e96e8636"
+    }
+  ],
 	"upload_source_maps": true
 	/**
 	 * Smart Placement
