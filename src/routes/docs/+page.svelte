@@ -66,4 +66,9 @@
 			<span class="link-desc">View source code</span>
 		</a>
 	</section>
+
+  <footer>
+    <span>© 2026 nuomibinggao · CC-NC-ND 4.0</span>
+    <span>Made with ♥</span>
+  </footer>
 </main>

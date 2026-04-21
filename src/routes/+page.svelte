@@ -73,7 +73,7 @@
   </section>
 
   <footer>
-    <span>© 2026 nuomibinggao</span>
+    <span>© 2026 nuomibinggao · CC-NC-ND 4.0</span>
     <span>Made with ♥</span>
   </footer>
 </main>

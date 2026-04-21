@@ -38,4 +38,9 @@
 				<span class="link-desc">Return to the main page</span>
 			</a>
 		</div>
+
+  <footer>
+    <span>© 2026 nuomibinggao · CC-NC-ND 4.0</span>
+    <span>Made with ♥</span>
+  </footer>
 </main>
