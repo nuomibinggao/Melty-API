@@ -4,7 +4,7 @@ This is the source code for the backend of my personal website, Melty Pages (for
 
 ---
 
-# Depricated
+# Deprecated
 v1 is now deprecated, switch to branch v2 to use the newest API.
 
 ---
